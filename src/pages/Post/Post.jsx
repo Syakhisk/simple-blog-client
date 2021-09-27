@@ -14,7 +14,10 @@ export const Post = (props) => {
   };
 
   const formatDate = (datetz) => {
-    return new Date(datetz).toLocaleDateString({}, { weekday: "short" });
+    return new Date(datetz).toLocaleDateString(
+      {},
+      { day: "numeric", month: "long", year: "numeric" }
+    );
   };
 
   if (!post)
@@ -45,12 +48,13 @@ export const Post = (props) => {
         onLoad={handleThumbnail}
         className="object-contain h-96 -mx-32 rounded-xl border"
       />
-      <div className="my-3 flex flex-col space-y-3">
+      <div className="my-3 flex flex-col space-y-1">
         <h1 className="text-3xl font-bold">{post.title}</h1>
-        <p>Written by {post.users.name}</p>
-        <p>{formatDate(post.created_at)}</p>
+          <p className="text-gray-500">Written by {post.users.name}</p>
+          <p className="text-gray-500">{formatDate(post.created_at)}</p>
       </div>
-      <div className="">{post.content}</div>
+
+      <div className="max-w-2xl text-justify mt-6">{post.content}</div>
     </PostLayout>
   );
 };

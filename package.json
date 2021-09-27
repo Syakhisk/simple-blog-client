@@ -15,7 +15,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "dev": "BROWSER=none PORT=3001 craco start",
+    "dev": "TAILWIND_MODE=watch BROWSER=none PORT=3001 craco start",
     "start": "BROWSER=none PORT=3001 craco start",
     "build": "craco build",
     "test": "craco test",
